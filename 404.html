@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Redirect</title>
+    <script>
+        // Extract only the last part of the path as the phone number
+        const phoneNumber = window.location.pathname.split('/').pop();
+
+        // Validate the phone number (only digits allowed)
+        if (/^\d+$/.test(phoneNumber)) {
+            // Redirect to the phone dialer
+            window.location.href = `tel:${phoneNumber}`;
+        } else {
+            // Show an error message if the phone number is invalid
+            document.body.innerHTML = '<h1>Invalid phone number</h1>';
+        }
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+</body>
+</html>
